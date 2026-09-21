@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+generator/
+
+CLAUDE.md
+
+dashboard/
+
+data/
+
+module_2/lessons/lesson_21_module2_review/amazon_ecommerce_1M.csv
+
+.claude/
+
+.idea/
