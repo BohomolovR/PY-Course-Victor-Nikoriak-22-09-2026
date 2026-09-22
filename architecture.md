@@ -10,7 +10,7 @@
 # Структура репозиторію
 
 ```
-PY-Course-Victor-Nikoriak-23_02/
+PY-Course-Victor-Nikoriak-22-09-2026
 │
 ├── module_1/                        ← Модуль 1: Python Basics (уроки 03–12)
 │   ├── docs/                        ← Документація модуля 1
