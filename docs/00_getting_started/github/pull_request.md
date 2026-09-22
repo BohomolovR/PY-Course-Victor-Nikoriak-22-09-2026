@@ -132,9 +132,6 @@ Pull Request створено і отримав номер у репозитор
 
 ![Створений Pull Request у списку](images_pull_request/07_pull_request_created.jpg)
 
-<video controls muted style="max-width:100%;border-radius:8px" src="../images_pull_request/Confety.mp4"></video>
-<br>
-GitHub іноді показує таку анімацію одразу після успішного створення PR — це просто підтвердження, що все пройшло правильно, не окрема дія.
 
 ## Що відбувається після створення Pull Request
 
