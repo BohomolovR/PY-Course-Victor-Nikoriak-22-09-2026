@@ -13,5 +13,15 @@
         "Pizza": 3,
         "Pasta": 3,
         "Burger": 2
+    },
+    "revenue_by_dish": {
+        "Burger": 420.0,
+        "Pasta": 840.0,
+        "Pizza": 960.0,
+        "Salad": 380.0,
+        "Soup": 300.0
+    },
+    "revenue_by_month": {
+        "2026-03": 2900.0
     }
 }

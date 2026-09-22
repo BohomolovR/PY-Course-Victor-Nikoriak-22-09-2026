@@ -31,6 +31,8 @@ git push origin homework-01
 
 ### 5️⃣ Здай домашню роботу через Pull Request
 
+👉 Детальна покрокова інструкція зі скриншотами кожного кроку — [Pull Request](github/pull_request.md).
+
 1️⃣ Відкрий репозиторій на GitHub.
 
 2️⃣ GitHub часто автоматично покаже кнопку **Compare & pull request**. Якщо ні — натисни **New pull request**.
