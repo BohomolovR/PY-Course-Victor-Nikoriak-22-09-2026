@@ -10,7 +10,9 @@
 
 ## 📖 Книга курсу
 
-Повна теорія, довідники та інструкції — у [книзі документації](docs/index.md) (MkDocs; після публікації — на GitHub Pages за адресою з `[mkdocs.yml](https://nikoriakviktot.github.io/PY-Course-Victor-Nikoriak-22-09-2026/)`).
+Повна теорія, довідники та інструкції — у [книзі курсу на GitHub Pages](https://nikoriakviktot.github.io/PY-Course-Victor-Nikoriak-22-09-2026/).
+
+[Вихідні файли книги](docs/index.md) · [Конфігурація MkDocs](mkdocs.yml)
 
 Швидкі посилання:
 
