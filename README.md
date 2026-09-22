@@ -12,7 +12,7 @@
 
 Повна теорія, довідники та інструкції — у [книзі курсу на GitHub Pages](https://nikoriakviktot.github.io/PY-Course-Victor-Nikoriak-22-09-2026/).
 
-[Вихідні файли книги](docs/index.md) · [Конфігурація MkDocs](mkdocs.yml)
+[Вихідні файли книги](docs/index.md)
 
 Швидкі посилання:
 
@@ -33,4 +33,3 @@
 - [Архітектура репозиторію](architecture.md)
 - [Про викладача](instructor.md)
 - [Сертифікати](certificates/beetroot_python_2021.md)
-- [План міграції та розвитку курсу](data/plan_md/migration_plan.md) *(локальний файл, не публікується)*
