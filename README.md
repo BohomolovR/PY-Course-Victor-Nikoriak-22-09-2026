@@ -22,7 +22,6 @@
 - [Часті проблеми](docs/00_getting_started/troubleshooting.md)
 
 ## 🚀 Швидкий старт
-## 🚀 Швидкий старт
 
 ### 1. Встановіть Git
 
