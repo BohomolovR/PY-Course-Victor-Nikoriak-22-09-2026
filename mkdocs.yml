@@ -81,7 +81,7 @@ nav:
       - "1. Вступ: формат курсу, AI-політика": modules/m1/lesson_01.md
       - "2. Перші кроки": modules/m1/lesson_02.md
       - "3. Змінні та базові типи даних": modules/m1/lesson_03.md
-      - "4. Булевий тип, if, while": modules/m1/lesson_04.md
+      - "4. Умови та цикли": modules/m1/lesson_04.md
       - "5. Списки, кортежі, множини": modules/m1/lesson_05.md
       - "6. Словники, for, comprehensions": modules/m1/lesson_06.md
       - "7. Функції": modules/m1/lesson_07.md
