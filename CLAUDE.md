@@ -2,7 +2,7 @@
 
 > Authoritative entry point for AI agents working in this repository.
 > Read this file entirely before touching code, notebooks, or tooling.
-> This repo is the **v5.0 migration target**, replacing `PY-Course-Victor-Nikoriak-23_02`. See `data/plan_md/migration_plan.md` for the full migration plan and current phase.
+> This repo is the **v5.0 migration target**, replacing `PY-Course-Victor-Nikoriak-23_02`. See `.claude/plan_md/migration_plan.md` for the full migration plan and current phase.
 
 ---
 
@@ -24,7 +24,7 @@
 
 ```
 PY-Course-Victor-Nikoriak-22-09-2026/
-├── CLAUDE.md                   ← this file (gitignored — instructor-local only)
+├── CLAUDE.md                   ← this file
 ├── README.md                   ← short student-facing entry point (Ukrainian)
 ├── course.yaml                 ← Course/module config (source of truth; used by Django LMS sync)
 ├── course.json                 ← Course/module config (generated mirror of course.yaml)
@@ -38,22 +38,30 @@ PY-Course-Victor-Nikoriak-22-09-2026/
 │   ├── modules/                ← per-module stub pages (М1–М6 + AI bonus), content pending
 │   └── 00_python_mental_model.md, 01_zen_of_python.md, git-cheatsheet.md
 │
-├── module_1/                   ← Module 1 (copied from the old repo, not yet re-audited against v5.0)
+├── module_1/                   ← М1. Python Core
 │   ├── docs/                   ← Module 1 reference notebooks (separate from the top-level docs/ book)
-│   └── lessons/                ← lesson_03_… through lesson_12_…
+│   └── lessons/                ← lesson_01_… through lesson_17_… (v5.0 lessons 1–17)
+├── module_2/
+│   └── lessons/                ← lesson_18_functions_first_class/ only (rest of М2 pending)
+│
+├── tools/
+│   ├── sync_notebook_metadata.py ← generates the Colab badge + metadata.lms of every notebook
+│   └── lessons_v5.json         ← v5.0 lesson titles (1–52), stream slug
 │
 ├── assignments/                ← empty — homework not migrated yet
 ├── certificates/                ← beetroot_python_2021.md only
 │
-├── data/                       ← gitignored — planning/source material, not published
-│   ├── plan_md/migration_plan.md
+├── .claude/plan_md/            ← migration plan + per-module audits (migration_plan.md, module_1_audit.md, …)
+├── data/                       ← gitignored — source material, not published
 │   ├── PY_UKR_Navigation_table_5 [UPDATE].xlsx   ← authoritative v5.0 curriculum source
 │   └── v.5.0/, Модуль 1. Python core/            ← legacy raw source material
 │
-└── .github/workflows/docs.yml  ← builds/publishes docs/ to GitHub Pages on push
+└── .github/workflows/
+    ├── docs.yml                ← builds/publishes docs/ to GitHub Pages on push
+    └── notebooks.yml           ← runs tools/sync_notebook_metadata.py --check on push/PR
 ```
 
-**Not yet migrated from the old repo** (planned, not present): `module_2/`–`module_4/`, `requirements.txt`, `SETUP.md`, `install_course.*`/`start_course.*`, `dashboard.ipynb`, `tools/`, `generator/`, `run_data/`, `docker-compose.yml`. The old `module_5` (Django/DevOps content) is **deliberately not migrated** — it isn't part of the v5.0 navigation table; see `data/plan_md/migration_plan.md` §0. Do not assume any of these exist without checking.
+**Not yet migrated from the old repo** (planned, not present): the rest of `module_2/` (only lesson 18 is here), `module_3/`–`module_4/`, `SETUP.md`, `install_course.*`/`start_course.*`, `dashboard.ipynb`, the old `tools/` scripts (`generate_student.py`, `qa_suite.py`, `client.py`, `config.json` — `tools/` currently holds only the notebook-metadata sync), `generator/`, `run_data/`, `docker-compose.yml`. The old `module_5` (Django/DevOps content) is **deliberately not migrated** — it isn't part of the v5.0 navigation table; see `.claude/plan_md/migration_plan.md` §0. Do not assume any of these exist without checking.
 
 ---
 
@@ -63,12 +71,17 @@ PY-Course-Victor-Nikoriak-22-09-2026/
 ```
 module_<N>/lessons/lesson_<NN>_<topic_slug>/
 ```
-Example: `module_1/lessons/lesson_04_boolean_logic_and_control/`
+`NN` is the **v5.0 lesson number** from the navigation table — numbering runs through the whole course (1–52) and does not restart per module.
+Examples: `module_1/lessons/lesson_05_lists_tuples_sets/`, `module_2/lessons/lesson_18_functions_first_class/`.
+`<topic_slug>` becomes the notebook's `metadata.lms.lesson_slug` (see LMS Metadata), so renaming a folder changes the slug.
+
+Materials from the old 23_02 course live in the folder of the v5.0 lesson they belong to (mapping and rationale: `.claude/plan_md/module_1_audit.md`).
 
 ### Files inside each lesson
 
 | File pattern | Purpose |
 |---|---|
+| `note_lesson_NN_*.ipynb` | Main v5.0 lesson notebook (linked from the book page `docs/modules/mN/lesson_NN.md`) |
 | `*_student.ipynb` | Student-facing notebook (solutions stripped) |
 | `konspekt_*.ipynb` or `notes_*.ipynb` | Instructor lecture notes |
 | `python_lesson_*_grup_N.ipynb` | Group-specific variant (groups 1–4) |
@@ -106,11 +119,29 @@ def require_student(student_name):
 }
 ```
 
+### Colab badge & `metadata.lms` — generated, never hand-edited
+
+Every notebook under `module_*/` gets two things from `tools/sync_notebook_metadata.py`, derived from **where the file lives**:
+
+- **cell 0** — markdown cell with `id: view-in-github` holding the "Open in Colab" badge →
+  `https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/<path>`;
+  plus `metadata.colab.include_colab_link: true`;
+- **`metadata.lms`** — see LMS Metadata below.
+
+It also rewrites relative links in markdown cells to absolute URLs (relative links don't resolve in Colab) and puts a Colab badge next to every GitHub notebook link in `docs/**/*.md`, failing on links to files that don't exist.
+
+```bash
+python tools/sync_notebook_metadata.py          # fix in place — run after adding/moving/renaming a notebook
+python tools/sync_notebook_metadata.py --check  # report only, exit 1 on drift (CI: .github/workflows/notebooks.yml)
+```
+
+Why this exists: notebooks copied from 23_02 kept badges pointing at `PY-Course-Victor-Nikoriak-23_02/blob/main/<file>.ipynb` (old repo, repo root), so Colab failed with "Could not find … .ipynb". When saving from Colab ("File → Save a copy in GitHub"), always type the **full path** (`module_1/lessons/lesson_NN_…/file.ipynb`) — Colab defaults to the bare filename, i.e. the repo root. Student/teacher Colab guide: `docs/00_getting_started/colab.md`.
+
 ---
 
 ## Tools & Automation
 
-> ⚠️ None of `tools/`, `generator/`, `dashboard.ipynb` have been migrated into this repo yet — this section documents the intended tooling from the old repo for when that migration phase happens. Don't reference these paths as if they exist here.
+> ⚠️ Apart from `tools/sync_notebook_metadata.py` (above), none of the old `tools/` scripts, `generator/` or `dashboard.ipynb` have been migrated into this repo yet — this section documents the intended tooling from the old repo for when that migration phase happens. Don't reference these paths as if they exist here.
 
 ### generate_student.py — Create student notebooks
 ```bash
@@ -118,7 +149,7 @@ def require_student(student_name):
 python tools/generate_student.py --all
 
 # Strip a specific notebook
-python tools/generate_student.py lessons/04_boolean_logic_and_control/konspekt_bool_logic.ipynb
+python tools/generate_student.py module_1/lessons/lesson_04_conditions_and_control/notes_bool_logic.ipynb
 ```
 - Removes all `# BEGIN SOLUTION … # END SOLUTION` blocks
 - Removes cells tagged `"instructor"`
@@ -231,7 +262,7 @@ Integrate these principles in all new lesson content:
 
 ## LMS Metadata — Required in Every Notebook
 
-> ⚠️ **Not connected yet.** The Django 5 LMS (`Python_Curse`) still points `GITHUB_COURSE_REPO` at the old repo (`PY-Course-Victor-Nikoriak-23_02`), not this one — switching it over is the last phase of the migration (see `data/plan_md/migration_plan.md`). The block below documents the metadata contract this repo must eventually satisfy, not something already wired up here.
+> ⚠️ **Not connected yet.** The Django 5 LMS (`Python_Curse`) still points `GITHUB_COURSE_REPO` at the old repo (`PY-Course-Victor-Nikoriak-23_02`), not this one — switching it over is the last phase of the migration (see `.claude/plan_md/migration_plan.md`). The block below documents the metadata contract this repo must eventually satisfy, not something already wired up here.
 >
 > Once connected: this repository becomes a **Django 5 LMS** (Python_Curse project) source. Students log in via GitHub OAuth and access notebooks through the LMS. `main` branch is the **single source of truth** for the LMS sync.
 
@@ -249,29 +280,40 @@ GitHub push → webhook → Django server
 
 ### Required `lms` block in every notebook's metadata
 
+Generated by `tools/sync_notebook_metadata.py` — don't write it by hand. Example
+(`module_1/lessons/lesson_05_lists_tuples_sets/notes_lists_tuples_sets.ipynb`):
+
 ```json
 {
   "lms": {
     "course": "python-course",
-    "stream": "spring-2026",
-    "lesson_number": 3,
-    "lesson_slug": "variables_and_data_types",
-    "lesson_title": "Variables And Data Types",
+    "stream": "autumn-2026",
+    "module_number": 1,
+    "module_slug": "python-core",
+    "module_title": "Module 1 — Python Core",
+    "lesson_number": 5,
+    "lesson_slug": "lists_tuples_sets",
+    "lesson_title": "Списки, кортежі та множини",
     "notebook_type": "notes",
+    "notebook_path": "module_1/lessons/lesson_05_lists_tuples_sets/notes_lists_tuples_sets.ipynb",
     "version": 1
   }
 }
 ```
 
-| Field | Required | Value pattern |
-|-------|----------|---------------|
-| `course` | ✅ | always `"python-course"` |
-| `stream` | ✅ | always `"spring-2026"` |
-| `lesson_number` | ✅ | integer (3–N) |
-| `lesson_slug` | ✅ | must match `lesson_id` in the server-side exam JSON |
-| `lesson_title` | ✅ | human-readable title in English |
-| `notebook_type` | ✅ | `"notes"` for lecture notebooks |
-| `version` | ✅ | `1` |
+| Field | Value | Source |
+|-------|-------|--------|
+| `course` | `"python-course"` | `tools/lessons_v5.json` |
+| `stream` | `"autumn-2026"` (stream 22_09) | `tools/lessons_v5.json` |
+| `module_number` / `module_slug` / `module_title` | parent module | `module_N/` + `course.json` |
+| `lesson_number` | v5.0 lesson number (1–52) | `NN` in `lesson_NN_<slug>/` (must be in the module's `lessons` in `course.json`) |
+| `lesson_slug` | **folder slug** | `<slug>` in `lesson_NN_<slug>/` — must match `lesson_id` in the server-side exam JSON |
+| `lesson_title` | Ukrainian v5.0 title | `tools/lessons_v5.json` |
+| `notebook_type` | `"notes"` (`note_*`/`notes_*`), `"lesson"` (other), `"docs"` (`module_N/docs/`) | kept if already set |
+| `notebook_path` | repo-relative path | file location |
+| `version` | `1` | kept if already set |
+
+Reference notebooks in `module_N/docs/` get `lesson_number: null` and keep their own `lesson_slug`/`lesson_title`.
 
 ### Exam JSON (`data/lesson_NN_exam.json`) — server-side
 
@@ -288,21 +330,32 @@ GitHub push → webhook → Django server
 
 ### Current lesson slugs
 
-| Lesson | Directory | `lesson_slug` |
-|--------|-----------|---------------|
-| 03 | `lesson_03_variables_and_data_types` | `variables_and_data_types` |
-| 04 | `lesson_04_boolean_logic_and_control` | `boolean_logic_and_control` |
-| 05 | `lesson_05_modules_imports_cli` | `modules_imports_cli` |
-| 06 | `lesson_06_lists_tuples_sets` | `lists_tuples_sets` |
-| 07 | `lesson_07_loops_dicts_comprehensions` | `loops_dicts_comprehensions` |
-| 08 | `lesson_08_functions` | `functions` |
-| 09 | `lesson_09_modules_standard_library` | `modules_standard_library` |
-| 10 | `lesson_10_exceptions_error_handling` | `exceptions_error_handling` |
-| 11 | `lesson_11_file_io_json` | `file_io_json` |
-| 12 | `lesson_12_module1_review` | `module_01_final_exam` |
+`lesson_slug` is always the folder slug — no exceptions.
 
-> ⚠️ Lesson 12 uses slug `module_01_final_exam` (not the directory name pattern)
-> because the server-side `lesson_12_exam.json` uses `"lesson_id": "module_01_final_exam"`.
+| Lesson | Directory | `lesson_slug` | Old 23_02 slug (exam JSON `lesson_id`) |
+|--------|-----------|---------------|------------------------------|
+| 1 | `module_1/lessons/lesson_01_intro_and_course_format` | `intro_and_course_format` | — |
+| 2 | `module_1/lessons/lesson_02_first_steps_environment_setup` | `first_steps_environment_setup` | — |
+| 3 | `module_1/lessons/lesson_03_variables_and_data_types` | `variables_and_data_types` | `variables_and_data_types` (same) |
+| 4 | `module_1/lessons/lesson_04_conditions_and_control` | `conditions_and_control` | `boolean_logic_and_control` |
+| 5 | `module_1/lessons/lesson_05_lists_tuples_sets` | `lists_tuples_sets` | `lists_tuples_sets` (same, was lesson 06) |
+| 6 | `module_1/lessons/lesson_06_dicts_loops_comprehensions` | `dicts_loops_comprehensions` | `loops_dicts_comprehensions` |
+| 7 | `module_1/lessons/lesson_07_functions` | `functions` | `functions` (same, was lesson 08) |
+| 8 | `module_1/lessons/lesson_08_practicum_big_o` | `practicum_big_o` | — |
+| 9 | `module_1/lessons/lesson_09_decorators` | `decorators` | — |
+| 10 | `module_1/lessons/lesson_10_iterators_generators` | `iterators_generators` | — |
+| 11 | `module_1/lessons/lesson_11_practicum_search` | `practicum_search` | — |
+| 12 | `module_1/lessons/lesson_12_modules_stdlib` | `modules_stdlib` | `modules_standard_library`, `modules_imports_cli` |
+| 13 | `module_1/lessons/lesson_13_exceptions` | `exceptions` | `exceptions_error_handling` |
+| 14 | `module_1/lessons/lesson_14_file_io_json` | `file_io_json` | `file_io_json` (same, was lesson 11) |
+| 15 | `module_1/lessons/lesson_15_git_github_system` | `git_github_system` | — |
+| 16 | `module_1/lessons/lesson_16_practicum_hashing` | `practicum_hashing` | — |
+| 17 | `module_1/lessons/lesson_17_module1_review` | `module1_review` | `module_01_final_exam` |
+| 18 | `module_2/lessons/lesson_18_functions_first_class` | `functions_first_class` | — |
+
+> ⚠️ When the LMS is switched to this repo, server-side exam JSONs from 23_02 whose `lesson_id` differs
+> from the new slug (last column) must be renamed to the new slug, otherwise `sync_exams` reports
+> "Lesson not found for lesson_id".
 
 ### After adding metadata — run on server
 
@@ -328,18 +381,16 @@ If `sync_exams` says "Lesson not found for lesson_id":
 
 ## Adding a New Lesson
 
-1. Create `module_N/lessons/lesson_NN_topic_slug/` following the naming convention
+1. Create `module_N/lessons/lesson_NN_topic_slug/` following the naming convention (`NN` = v5.0 lesson number; `topic_slug` becomes `lesson_slug`)
 2. Create `__init__.py` (empty)
 3. Write **master notebook** (instructor version with full solutions)
-4. **Add `lms` metadata block** (see LMS Metadata section above) — **required for Django sync**
-   - Set `module_number`, `module_slug`, `module_title` to match the parent module
-   - Set `notebook_path` to the relative repo path of the notebook file
+4. **Run `python tools/sync_notebook_metadata.py`** — adds the Colab badge and the full `lms` block (incl. `module_*` and `notebook_path`); required for Colab and Django sync. A lesson number outside `tools/lessons_v5.json` needs its title added there first
 5. Add protected system cell with `SYSTEM_READY`, `COMPLETED_TASKS`, `require_system()`, `require_student()`
 6. Wrap solutions in `# BEGIN SOLUTION … # END SOLUTION`
 7. Tag instructor-only cells with `"tags": ["instructor"]`
 8. Run `python tools/generate_student.py module_N/lessons/lesson_NN_topic_slug/` to produce `*_student.ipynb`
 9. Add lesson config to `tools/config.json`
-10. Update `course.yaml` and `course.json` — add lesson number to the module's `lessons` array
+10. `course.yaml` / `course.json` already list all v5.0 lesson numbers per module — change them only for a lesson outside the v5.0 table
 11. Run `python tools/qa_suite.py --unit` to verify API integration
 12. Push to `main` → webhook triggers `sync_lessons` automatically
 
@@ -413,7 +464,10 @@ flowchart TD
 
 | Task | Where to start |
 |------|----------------|
-| Add new lesson content | `module_N/lessons/` → follow naming convention → run generate_student.py |
+| Add new lesson content | `module_N/lessons/` → follow naming convention → `tools/sync_notebook_metadata.py` |
+| Add / move / rename a notebook | `tools/sync_notebook_metadata.py` (CI fails otherwise) |
+| Colab badge wrong / "Could not find … .ipynb" | `tools/sync_notebook_metadata.py`; guide in `docs/00_getting_started/colab.md` |
+| v5.0 lesson numbers / titles / stream | `tools/lessons_v5.json` (+ `course.yaml`/`course.json` for modules) |
 | Strip solutions from notebook | `tools/generate_student.py` |
 | Check/change active lesson | `tools/config.json` |
 | Test API backend | `tools/qa_suite.py --unit` |
@@ -434,7 +488,9 @@ flowchart TD
 - **Never** modify `*_student.ipynb` files manually — they are always generated via `tools/generate_student.py`
 - **Always** use the `.venv` kernel (`python-course`) in notebooks — not the system Python
 - **Never** remove or reorder the protected system cell (🔒) in lesson notebooks
-- Lesson numbering starts at **03** (lessons 01–02 are intro/setup, not yet in repo)
+- Lesson folder numbers **are** v5.0 lesson numbers (1–52, running across modules): `lesson_05_*` = v5.0 lesson 5
+- **Never** hand-edit the Colab badge cell (`id: view-in-github`) or `metadata.lms` — run `tools/sync_notebook_metadata.py`
+- After adding/moving/renaming a notebook, run `tools/sync_notebook_metadata.py` — otherwise the `notebooks.yml` CI check fails
 - All lessons live under `module_N/lessons/` — **not** in a root-level `lessons/` folder
 - `assignments/` folder structure mirrors lesson numbering (HW3 ↔ lesson 03)
 - When adding a lesson, always update `course.yaml` and `course.json` module `lessons` arrays
