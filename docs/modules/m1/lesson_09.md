@@ -12,6 +12,6 @@
 - `functools.lru_cache` — реальне вимірювання часу на `fib(30)` до і після кешування;
 - самостійне завдання (TRANSFER) — декоратор-фабрика `deny_role(*blocked_roles)`, структурно обернена до `require_role`, з 10 `assert`-перевірками.
 
-**Ноутбук заняття:** [`note_lesson_09_decorators.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_09_decorators/note_lesson_09_decorators.ipynb)
+**Ноутбук заняття:** [`note_lesson_09_decorators.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_09_decorators/note_lesson_09_decorators.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_09_decorators/note_lesson_09_decorators.ipynb)
 
 👉 Повний довідник — [Функції та функціональне програмування](../../reference/python_core/functions.md) (замикання, декоратори, `*args`/`**kwargs`, `map`/`filter`/`reduce`) і [Простори імен / LEGB](../../reference/python_core/namespaces_legb.md). Глибша архітектурна тема — стек декораторів як middleware, клас-декоратори, `lru_cache` у продакшн-системах — у М2, позиція 18.

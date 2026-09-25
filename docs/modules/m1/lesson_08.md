@@ -121,4 +121,4 @@ all_unique_b: x10.0  при 10x вході  -> O(n)
 
 П2 («Пошук», позиція 11) продовжує лінію мислення: «Можу просто перебрати все» → «А чи знаю я щось про дані (наприклад, що вони відсортовані), що дозволить зробити краще?»
 
-**Спробуйте самі — де практикуватись:** [`note_lesson_08_big_o.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_08_practicum_big_o/note_lesson_08_big_o.ipynb) — повний покроковий конспект, самоперевірка й шпаргалка.
+**Спробуйте самі — де практикуватись:** [`note_lesson_08_big_o.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_08_practicum_big_o/note_lesson_08_big_o.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_08_practicum_big_o/note_lesson_08_big_o.ipynb) — повний покроковий конспект, самоперевірка й шпаргалка.

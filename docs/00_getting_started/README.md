@@ -5,8 +5,9 @@
 1. [Встановлення Git](git_setup.md) — один раз, перед стартом.
 2. [GitHub](github/README.md) — SSH-ключ, fork, clone (докладніше, ніж тут).
 3. [Налаштування середовища](environment_setup.md) — venv, залежності, Jupyter.
-4. [Здача домашніх робіт](homework_workflow.md) — гілки, коміти, Pull Request.
-5. [Часті проблеми](troubleshooting.md) — якщо щось пішло не так.
+4. [Ноутбуки в Google Colab](colab.md) — як відкрити урок без встановлення Python і зберегти свою копію.
+5. [Здача домашніх робіт](homework_workflow.md) — гілки, коміти, Pull Request.
+6. [Часті проблеми](troubleshooting.md) — якщо щось пішло не так.
 
 ## Як працює курс
 
