@@ -2,6 +2,6 @@
 
 🚧 Контент у розробці. Наповнюється після завершення пілотної фази на М1.
 
-Уже перенесено зі старого курсу (23_02):
+Уроки модуля:
 
-- **Урок 18. Функції як об'єкти першого класу:** [`note_lesson_18_functions_first_class.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_2/lessons/lesson_18_functions_first_class/note_lesson_18_functions_first_class.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_2/lessons/lesson_18_functions_first_class/note_lesson_18_functions_first_class.ipynb)
+- [Урок 18. Функції як об'єкти першого класу](m2/lesson_18.md) — сервіс доставки після карантину: словник команд, `key=`, callback, фабрики й замикання, конвеєр з функцій.
