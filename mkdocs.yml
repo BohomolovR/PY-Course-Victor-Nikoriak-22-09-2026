@@ -98,6 +98,7 @@ nav:
     - "М2. Python Advanced":
       - Огляд модуля: modules/m2_python_advanced.md
       - "18. Функції як об'єкти першого класу": modules/m2/lesson_18.md
+      - "19. Класи, простір імен": modules/m2/lesson_19.md
     - "М3. Бази даних": modules/m3_databases.md
     - "М4. Web (+ Web Advanced)": modules/m4_web.md
     - "М5. Production": modules/m5_production.md
