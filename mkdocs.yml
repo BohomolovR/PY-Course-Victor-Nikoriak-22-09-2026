@@ -42,6 +42,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       lang: uk
@@ -73,11 +76,11 @@ nav:
 
   - Модулі курсу (в розробці):
     - Огляд: modules/README.md
-    - "М1. Python Core":
+    - "М1. Основи Python":
       - Огляд модуля: modules/m1/index.md
       - "1. Вступ: формат курсу, AI-політика": modules/m1/lesson_01.md
       - "2. Перші кроки": modules/m1/lesson_02.md
-      - "3. Змінні та типи даних": modules/m1/lesson_03.md
+      - "3. Змінні та базові типи даних": modules/m1/lesson_03.md
       - "4. Булевий тип, if, while": modules/m1/lesson_04.md
       - "5. Списки, кортежі, множини": modules/m1/lesson_05.md
       - "6. Словники, for, comprehensions": modules/m1/lesson_06.md
@@ -87,7 +90,7 @@ nav:
       - "10. Ітератори й генератори": modules/m1/lesson_10.md
       - "11. П2. Пошук": modules/m1/lesson_11.md
       - "12. Модулі та стандартна бібліотека": modules/m1/lesson_12.md
-      - "13. Виключення": modules/m1/lesson_13.md
+      - "13. Винятки та обробка помилок": modules/m1/lesson_13.md
       - "14. Файли I/O, JSON": modules/m1/lesson_14.md
       - "15. Git & GitHub: система": modules/m1/lesson_15.md
       - "16. П3. Хеш-структури": modules/m1/lesson_16.md
