@@ -756,6 +756,21 @@ Git: 3 учасники
 ??? tip "Підказка"
     Перетвори кожен список на множину один раз, на початку. Далі кожен рядок виводу — одна операція з множинами і, за потреби, `sorted()`.
 
+### Квест для груп: чи отримає Тарас чайові?
+
+Кафе зачиняється, і офіціант Тарас отримає чайові, лише якщо **каса зійдеться**. Чотири служби перевіряють свою частину дня, і кожна працює зі своїм контейнером:
+
+| Служба | Контейнер | Що перевіряє |
+|---|---|---|
+| Кухня | `list` | замовлення змінилося: дозамовили, відмовилися, хліб на початок |
+| Каса | `tuple` | розпакувати закритий чек і порахувати суму до сплати |
+| Зал | `NamedTuple`, індекси | чайові останніх трьох чеків дня через від'ємні індекси |
+| Адміністратор | `set` | постійні гості — перетин гостей двох днів |
+
+Усі групи відкривають той самий ноутбук і розв'язують свою перевірку. Каса дає підказку на типову помилку, а за правильну відповідь показує частину чайових у гривнях. Групи називають суми викладачу, він вписує їх у клітинку «Закриття зміни» — і всі дізнаються, скільки отримає Тарас. Удома ноутбук можна пройти самостійно, усі чотири перевірки.
+
+**Ноутбук квесту:** [`cafe_shift_quest.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/cafe_shift_quest.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/cafe_shift_quest.ipynb)
+
 ## Підсумок
 
 | Що потрібно | Як записати |
@@ -795,6 +810,7 @@ Git: 3 учасники
 ### Що далі
 
 - Ноутбук заняття: [`note_lesson_05_lists_tuples_sets.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/note_lesson_05_lists_tuples_sets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/note_lesson_05_lists_tuples_sets.ipynb) — ті самі ідеї на реальному наборі з 244 чеків.
+- Квест для груп: [`cafe_shift_quest.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/cafe_shift_quest.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/cafe_shift_quest.ipynb) — вечірня зміна в кафе, список, кортеж, `NamedTuple` і множини в одній грі.
 - Додатковий конспект з вправами: [`notes_lists_tuples_sets.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/notes_lists_tuples_sets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_lists_tuples_sets/notes_lists_tuples_sets.ipynb)
 - Довідник: [Списки](../../reference/python_core/lists.md), [Кортежі й `NamedTuple`](../../reference/python_core/tuples.md), [Множини](../../reference/python_core/sets.md).
 - Наступний урок: [Урок 6. Словники, for, comprehensions](lesson_06.md). Цикл `while` з індексом стане коротшим завдяки `for`, а словник дозволить рахувати, наприклад, виторг окремо для кожного дня.
