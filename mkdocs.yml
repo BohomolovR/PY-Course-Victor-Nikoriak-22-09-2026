@@ -102,6 +102,7 @@ nav:
       - "20. Наслідування, поліморфізм": modules/m2/lesson_20.md
       - "21. Інкапсуляція, область видимості": modules/m2/lesson_21.md
       - "22. П4. Рекурсія, divide & conquer, backtracking": modules/m2/lesson_22.md
+      - "23. @property, декоратори класів, dunder": modules/m2/lesson_23.md
     - "М3. Бази даних": modules/m3_databases.md
     - "М4. Web (+ Web Advanced)": modules/m4_web.md
     - "М5. Production": modules/m5_production.md
