@@ -36,7 +36,7 @@ https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoria
 
 ## Ноутбуки, яким потрібні сусідні файли
 
-Деякі уроки імпортують `.py`-файли або читають дані з тієї ж папки. Наприклад, урок 14 читає `contacts.json` та `orders.csv`. У Colab є лише сам ноутбук, тому додай на його початок клітинку:
+Деякі уроки імпортують `.py`-файли або читають дані з тієї ж папки. Наприклад, ноутбук `file_json_example.ipynb` з уроку 14 читає `restaurant_info.txt` та `orders.csv`. У Colab є лише сам ноутбук, тому додай на його початок клітинку:
 
 ```python
 !git clone --depth 1 https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026.git course
