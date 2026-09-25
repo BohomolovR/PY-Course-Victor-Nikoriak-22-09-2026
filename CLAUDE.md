@@ -42,7 +42,7 @@ PY-Course-Victor-Nikoriak-22-09-2026/
 │   ├── docs/                   ← Module 1 reference notebooks (separate from the top-level docs/ book)
 │   └── lessons/                ← lesson_01_… through lesson_17_… (v5.0 lessons 1–17)
 ├── module_2/
-│   └── lessons/                ← lesson_18_functions_first_class/ … lesson_20_inheritance_polymorphism/ (rest of М2 pending)
+│   └── lessons/                ← lesson_18_functions_first_class/ … lesson_21_encapsulation_scope/ (rest of М2 pending)
 │
 ├── tools/
 │   ├── sync_notebook_metadata.py ← generates the Colab badge + metadata.lms of every notebook
@@ -61,7 +61,7 @@ PY-Course-Victor-Nikoriak-22-09-2026/
     └── notebooks.yml           ← runs tools/sync_notebook_metadata.py --check on push/PR
 ```
 
-**Not yet migrated from the old repo** (planned, not present): the rest of `module_2/` (only lessons 18–20 are here), `module_3/`–`module_4/`, `SETUP.md`, `install_course.*`/`start_course.*`, `dashboard.ipynb`, the old `tools/` scripts (`generate_student.py`, `qa_suite.py`, `client.py`, `config.json` — `tools/` currently holds only the notebook-metadata sync), `generator/`, `run_data/`, `docker-compose.yml`. The old `module_5` (Django/DevOps content) is **deliberately not migrated** — it isn't part of the v5.0 navigation table; see `.claude/plan_md/migration_plan.md` §0. Do not assume any of these exist without checking.
+**Not yet migrated from the old repo** (planned, not present): the rest of `module_2/` (only lessons 18–21 are here), `module_3/`–`module_4/`, `SETUP.md`, `install_course.*`/`start_course.*`, `dashboard.ipynb`, the old `tools/` scripts (`generate_student.py`, `qa_suite.py`, `client.py`, `config.json` — `tools/` currently holds only the notebook-metadata sync), `generator/`, `run_data/`, `docker-compose.yml`. The old `module_5` (Django/DevOps content) is **deliberately not migrated** — it isn't part of the v5.0 navigation table; see `.claude/plan_md/migration_plan.md` §0. Do not assume any of these exist without checking.
 
 ---
 
@@ -354,6 +354,7 @@ Reference notebooks in `module_N/docs/` get `lesson_number: null` and keep their
 | 18 | `module_2/lessons/lesson_18_functions_first_class` | `functions_first_class` | — |
 | 19 | `module_2/lessons/lesson_19_classes_namespace` | `classes_namespace` | — |
 | 20 | `module_2/lessons/lesson_20_inheritance_polymorphism` | `inheritance_polymorphism` | — |
+| 21 | `module_2/lessons/lesson_21_encapsulation_scope` | `encapsulation_scope` | — |
 
 > ⚠️ When the LMS is switched to this repo, server-side exam JSONs from 23_02 whose `lesson_id` differs
 > from the new slug (last column) must be renamed to the new slug, otherwise `sync_exams` reports
