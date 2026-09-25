@@ -95,7 +95,9 @@ nav:
       - "15. Git & GitHub: система": modules/m1/lesson_15.md
       - "16. П3. Хеш-структури": modules/m1/lesson_16.md
       - "17. Узагальнення + фінальний проєкт": modules/m1/lesson_17.md
-    - "М2. Python Advanced": modules/m2_python_advanced.md
+    - "М2. Python Advanced":
+      - Огляд модуля: modules/m2_python_advanced.md
+      - "18. Функції як об'єкти першого класу": modules/m2/lesson_18.md
     - "М3. Бази даних": modules/m3_databases.md
     - "М4. Web (+ Web Advanced)": modules/m4_web.md
     - "М5. Production": modules/m5_production.md
