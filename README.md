@@ -17,6 +17,7 @@
 Швидкі посилання:
 
 - [Як користуватися курсом](docs/00_getting_started/README.md)
+- [Ноутбуки в Google Colab](docs/00_getting_started/colab.md)
 - [SSH-ключі для GitHub](docs/00_getting_started/github/ssh_keys.md)
 - [Здача домашніх робіт](docs/00_getting_started/homework_workflow.md)
 - [Часті проблеми](docs/00_getting_started/troubleshooting.md)
@@ -82,8 +83,10 @@ upstream  → репозиторій курсу
 Після цього відкрийте потрібний урок у:
 
 ```text
-module_1/lessons/
+module_1/lessons/lesson_NN_<тема>/    ← NN = номер уроку за програмою курсу
 ```
+
+Без встановлення Python кожен ноутбук можна відкрити в Google Colab кнопкою **Open in Colab** у його першій клітинці: [Ноутбуки в Google Colab](docs/00_getting_started/colab.md).
 
 ---
 

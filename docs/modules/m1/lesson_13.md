@@ -147,7 +147,7 @@ Python явно рекомендує EAFP — вікна для race condition �
 
 👉 Швидкий довідник для повторення — [Exceptions & Error Handling](../../reference/python_core/exceptions.md).
 
-**Спробуйте самі — де практикуватись:** [`note_lesson_13_exceptions.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_10_exceptions_error_handling/note_lesson_13_exceptions.ipynb) (поступове нарощування коду, самоперевірка на 5 запитань, шпаргалка).
+**Спробуйте самі — де практикуватись:** [`note_lesson_13_exceptions.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_13_exceptions/note_lesson_13_exceptions.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_13_exceptions/note_lesson_13_exceptions.ipynb) (поступове нарощування коду, самоперевірка на 5 запитань, шпаргалка).
 
 ## Далі
 

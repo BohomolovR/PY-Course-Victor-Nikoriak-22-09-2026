@@ -1,6 +1,6 @@
 # `eval()` в Python: від «зручної функції» до «дірки в безпеці»
 
-Довідник про вбудовану функцію `eval()` — що вона робить, чому вона небезпечна з чужим вводом, і чим її замінити залежно від задачі. Наскрізний приклад — CLI-калькулятор без `eval()` ([`cli_calculator.py`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_modules_imports_cli/calculator_project/cli_calculator.py)); ця папка (`lesson_05_modules_imports_cli/`) — матеріал зі старого нумерування репозиторію, ще не інтегрований у жодну поточну позицію програми v5.0. Концептуально найближче до Уроку 12 (модулі, `import`) і Уроку 17 (капстоун-проєкт CLI).
+Довідник про вбудовану функцію `eval()` — що вона робить, чому вона небезпечна з чужим вводом, і чим її замінити залежно від задачі. Наскрізний приклад — CLI-калькулятор без `eval()` ([`cli_calculator.py`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_12_modules_stdlib/calculator_project/cli_calculator.py)); `calculator_project/` — матеріал зі старого курсу, тепер лежить у папці Уроку 12 (`lesson_12_modules_stdlib/`, модулі та `import`); концептуально пов'язаний також з Уроком 17 (міні-проєкт CLI).
 
 ## Що таке `eval()`?
 
@@ -360,7 +360,7 @@ for a, op, b in [(10, '+', 5), (15, '/', 4), (5, '/', 0), (5, '@', 3)]:
 Результат: 14
 ```
 
-Саме так побудований [`cli_calculator.py`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_05_modules_imports_cli/calculator_project/cli_calculator.py) — три етапи:
+Саме так побудований [`cli_calculator.py`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_12_modules_stdlib/calculator_project/cli_calculator.py) — три етапи:
 
 ```text
   "2 + 3 * 4"

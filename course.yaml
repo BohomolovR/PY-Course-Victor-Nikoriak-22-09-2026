@@ -3,9 +3,9 @@ course:
   title: Python Course Viktor Nikoriak
 
 stream:
-  code: "23_02"
-  name: "Spring 2026 Python Group"
-  start_date: 2026-02-23
+  code: "22_09"
+  name: "Autumn 2026 Python Group"
+  start_date: 2026-09-22
 
 repository:
   owner: NikoriakViktot
@@ -18,11 +18,11 @@ runtime:
 paths:
   docs: docs
 
-# Module/lesson numbers below are v5.0 TARGET numbers from
-# data/PY_UKR_Navigation_table_5 [UPDATE].xlsx (sheet "Navigation 5.0"), read row-by-row.
-# They do NOT yet map to the lesson_NN_* folder names copied into module_1/ from the old repo —
-# that mapping is exactly what the audit phase (see data/plan_md/migration_plan.md §1.1/§3)
-# needs to work out before any folder is renamed. Do not assume lesson_03_* == lesson "3" here.
+# Module/lesson numbers below are v5.0 numbers from
+# data/PY_UKR_Navigation_table_5 [UPDATE].xlsx (sheet "Navigation 5.0").
+# Lesson folders follow the same numbering: module_N/lessons/lesson_NN_<slug>/, where NN is the
+# v5.0 lesson number. Notebook metadata (metadata.lms + the "Open in Colab" badge) is generated
+# from this numbering by tools/sync_notebook_metadata.py — run it after moving/renaming a notebook.
 modules:
   - number: 1
     slug: python-core

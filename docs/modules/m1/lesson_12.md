@@ -61,4 +61,4 @@
 
 👉 Довідник вбудованих функцій та інструментів інтроспекції (`dir`, `vars`, `random` докладніше тощо) — [Python Helper Toolkit](../../reference/python_core/introspection_debug_tools.md).
 
-**Спробуйте самі — де практикуватись:** [`note_lesson_12_modules_stdlib.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_09_modules_standard_library/note_lesson_12_modules_stdlib.ipynb) — повний покроковий конспект, самоперевірка й шпаргалка.
+**Спробуйте самі — де практикуватись:** [`note_lesson_12_modules_stdlib.ipynb`](https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_12_modules_stdlib/note_lesson_12_modules_stdlib.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026/blob/main/module_1/lessons/lesson_12_modules_stdlib/note_lesson_12_modules_stdlib.ipynb) — повний покроковий конспект, самоперевірка й шпаргалка.
