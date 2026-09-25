@@ -101,6 +101,7 @@ nav:
       - "19. Класи, простір імен": modules/m2/lesson_19.md
       - "20. Наслідування, поліморфізм": modules/m2/lesson_20.md
       - "21. Інкапсуляція, область видимості": modules/m2/lesson_21.md
+      - "22. П4. Рекурсія, divide & conquer, backtracking": modules/m2/lesson_22.md
     - "М3. Бази даних": modules/m3_databases.md
     - "М4. Web (+ Web Advanced)": modules/m4_web.md
     - "М5. Production": modules/m5_production.md
