@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp /home/niko_notebook/projects/notes_chat_app/archive/legacy_docs/docs_flat/DJANGO_SERVICES_SELECTORS.md /home/niko_notebook/projects/notes_chat_app/docs/06_application_architecture/django_services_selectors.md)",
+      "Bash(cp /home/niko_notebook/projects/notes_chat_app/archive/legacy_docs/docs_flat/DJANGO_COMMAND_SYSTEM.md /home/niko_notebook/projects/notes_chat_app/docs/02_django_core/django_command_system.md)",
+      "Bash(rm -rf /home/niko_notebook/projects/notes_chat_app/docs/archive)"
+    ]
+  }
+}
