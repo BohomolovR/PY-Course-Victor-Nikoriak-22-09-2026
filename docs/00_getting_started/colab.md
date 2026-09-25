@@ -36,11 +36,11 @@ https://colab.research.google.com/github/NikoriakViktot/PY-Course-Victor-Nikoria
 
 ## Ноутбуки, яким потрібні сусідні файли
 
-Деякі уроки імпортують `.py`-файли або читають дані з тієї ж папки. Наприклад, урок 12 використовує `greeter.py` і `calculator_project/`, а урок 14 — `contacts.json` та `orders.csv`. У Colab є лише сам ноутбук, тому додай на його початок клітинку:
+Деякі уроки імпортують `.py`-файли або читають дані з тієї ж папки. Наприклад, урок 14 читає `contacts.json` та `orders.csv`. У Colab є лише сам ноутбук, тому додай на його початок клітинку:
 
 ```python
 !git clone --depth 1 https://github.com/NikoriakViktot/PY-Course-Victor-Nikoriak-22-09-2026.git course
-%cd course/module_1/lessons/lesson_12_modules_stdlib
+%cd course/module_1/lessons/lesson_14_file_io_json
 ```
 
 Шлях після `%cd` — це папка уроку, який ти відкрив.
