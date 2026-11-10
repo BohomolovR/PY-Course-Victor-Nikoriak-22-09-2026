@@ -1,0 +1,30 @@
+[
+  {
+    "first_name": "Anna",
+    "last_name": "Koval",
+    "phone": "+380000000001",
+    "city": "Kyiv",
+    "state": "Kyiv"
+  },
+  {
+    "first_name": "Ivan",
+    "last_name": "Koval",
+    "phone": "+380000000002",
+    "city": "Lviv",
+    "state": "Lviv"
+  },
+  {
+    "first_name": "Anna",
+    "last_name": "Bondar",
+    "phone": "+380000000003",
+    "city": "Lviv",
+    "state": "Lviv"
+  },
+  {
+    "first_name": "Andri",
+    "last_name": "Bohomolov",
+    "phone": "+380665854030",
+    "city": "Wroclaw",
+    "state": "Wroclaw"
+  }
+]
